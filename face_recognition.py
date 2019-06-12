@@ -17,7 +17,7 @@ while True:
 
 	faces = face_cascade.detectMultiScale(frame,1.3,5)
 	# print(faces)
-
+ 
 	if(len(faces)==0):
 		cv2.imshow("video",frame)
 		continue
