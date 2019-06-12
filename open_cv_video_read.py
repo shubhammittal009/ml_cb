@@ -16,9 +16,6 @@ while True:
 
 	gray = cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY)
 
-	# print(frame.shape)
-	# print(gray.shape)
-
 	cv2.imshow("RGB Title",frame)
 	cv2.imshow("GRAYSCALE Title",gray)
 
