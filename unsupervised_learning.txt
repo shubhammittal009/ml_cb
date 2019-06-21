@@ -1,0 +1,10 @@
+K-Means(unsupervised clustering) - Hard Clustering
+
+1. Start with random cluster centers.
+	[K=3] (No. of clusters)
+
+
+Repeat:
+	--> Assigns points to each cluster center.(based upin distance)
+
+	--> Update each cluster center = mean(points assigned to it)
