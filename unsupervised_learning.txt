@@ -8,3 +8,4 @@ Repeat:
 	--> Assigns points to each cluster center.(based upin distance)
 
 	--> Update each cluster center = mean(points assigned to it)
+
