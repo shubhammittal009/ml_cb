@@ -9,3 +9,4 @@ Repeat:
 
 	--> Update each cluster center = mean(points assigned to it)
 
+
