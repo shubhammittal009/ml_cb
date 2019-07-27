@@ -17,12 +17,6 @@ nose_cascade = cv2.CascadeClassifier("Train/third-party/Nose18x15.xml")
 glasses = cv2.imread("Train/glasses.png",-1)
 mustache = cv2.imread("Train/mustache.png",-1)
 
-'''
-OpenCV & Python Tutorial Video Series: https://kirr.co/ijcr59
-Eyes Cascade (and others): https://kirr.co/694cu1
-Nose Cascade / Mustache Post: https://kirr.co/69c1le
-'''
-
 while(True):
     # Capture frame-by-frame
     ret, frame = cap.read()
