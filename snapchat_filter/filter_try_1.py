@@ -25,33 +25,40 @@ for alpha in np.arange(0, 1.1, 0.1)[::-1]:
     # draw a red rectangle surrounding Adrian in the image
     # along with the text "PyImageSearch" at the top-left
     # corner
-    cv2.rectangle(overlay, (420, 205), (595, 385),
-        (0, 0, 255), -1)
+    # cv2.rectangle(overlay, (420, 205), (595, 385),
+    #     (0, 0, 255), -1)
     cv2.putText(overlay, "PyImageSearch: alpha={}".format(alpha),
         (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1.0, (0, 0, 255), 3)
 
+    # apply the overlay
+    cv2.addWeighted(overlay, alpha, output, 1 - alpha,
+        0, output)
+
+    # show the output image
+    print("alpha={}, beta={}".format(alpha, 1 - alpha))
+    cv2.imshow("Output", output)
+    cv2.waitKey(0)
 
 
 
 
+# gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+# img = cv2.cvtColor(img, cv2.COLOR_BGR2BGRA)
 
-gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-img = cv2.cvtColor(img, cv2.COLOR_BGR2BGRA)
-
-faces = face_cascade.detectMultiScale(gray, scaleFactor=1.5, minNeighbors=5)
-for (x,y,w,h) in faces:
-    roi_gray = gray[y:y+h, x:x+w]
-    roi_color = img[y:y+h, x:x+w]
-    cv2.rectangle(img,(x,y),(x+w,y+h),(255, 255, 255), 3)
+# faces = face_cascade.detectMultiScale(gray, scaleFactor=1.5, minNeighbors=5)
+# for (x,y,w,h) in faces:
+#     roi_gray = gray[y:y+h, x:x+w]
+#     roi_color = img[y:y+h, x:x+w]
+#     cv2.rectangle(img,(x,y),(x+w,y+h),(255, 255, 255), 3)
     
-    eyes = eye_cascade.detectMultiScale(roi_gray, scaleFactor=1.5, minNeighbors=5)
-    for (ex,ey,ew,eh) in eyes:
-        cv2.rectangle(roi_color,(ex,ey),(ex+ew,ey+eh),(0, 255, 0), 3)
-        roi_eyes = gray[ey:ey+eh, ex:ex+ew]
+#     eyes = eye_cascade.detectMultiScale(roi_gray, scaleFactor=1.5, minNeighbors=5)
+#     for (ex,ey,ew,eh) in eyes:
+#         cv2.rectangle(roi_color,(ex,ey),(ex+ew,ey+eh),(0, 255, 0), 3)
+#         roi_eyes = gray[ey:ey+eh, ex:ex+ew]
         
-    nose = nose_cascade.detectMultiScale(roi_gray, scaleFactor=1.5, minNeighbors=5)
-    for (nx,ny,nw,nh) in nose:
-        cv2.rectangle(roi_color,(nx,ny),(nx+nw,ny+nh),(0, 255, 255), 2)
-        roi_eyes = gray[ny:ny+nh, nx:nx+nw]
+#     nose = nose_cascade.detectMultiScale(roi_gray, scaleFactor=1.5, minNeighbors=5)
+#     for (nx,ny,nw,nh) in nose:
+#         cv2.rectangle(roi_color,(nx,ny),(nx+nw,ny+nh),(0, 255, 255), 2)
+#         roi_eyes = gray[ny:ny+nh, nx:nx+nw]
 
-cv2.imshow('img', img)
+# cv2.imshow('img', img)
