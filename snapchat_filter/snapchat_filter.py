@@ -6,8 +6,11 @@ eyes_cascade = cv2.CascadeClassifier("Train/third-party/frontalEyes35x16.xml")
 nose_cascade = cv2.CascadeClassifier("Train/third-party/Nose18x15.xml")
 
 img = cv2.imread("Test/Before.png",-1)
-glasses = cv2.imread("Train/glasses.png",-1)
-mustache = cv2.imread("Train/mustache.png",-1)
+# glasses = cv2.imread("Train/glasses.png",-1)
+# mustache = cv2.imread("Train/mustache.png",-1)
+
+mustache = cv2.imread("Train/glasses.png",-1)
+glasses = cv2.imread("Train/mustache.png",-1)
 
 cv2.imshow('Original',img)
 
